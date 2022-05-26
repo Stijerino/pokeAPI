@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "PokeAPI"
+version = "0.1.0"
+description = "Pokeberries statistics API"
+authors = ["Sergio Tijerino A."]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.27.1"
+Flask = "^2.1.2"
+Flask-RESTful = "^0.3.9"
+pytest = "^7.1.2"
+matplotlib = "^3.5.2"
+mpld3 = "^0.5.7"
+setuptools = "^62.3.2"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+flake8 = "^4.0.1"
+pytest = "^7.1.2"
+taskipy = "^1.10.2"
+coverage = "^6.4"
+pytest-cov = "^3.0.0"
+setuptools = "^62.3.2"
+
+
+[tool.taskipy.tasks]
+black = "black ."
+flake8 = "flake8 ."
+test = "coverage run -m pytest ."
+coverage = "coverage report -m"
+test-coverage = "task test && task coverage"
+check = "task black && task flake8 && task test-coverage"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
